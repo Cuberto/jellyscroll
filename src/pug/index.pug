@@ -1,0 +1,104 @@
+extends /_includes/layout
+
+block title
+    title Cuberto JellyScroll | Demo
+
+block content
+
+    .cb-layout#view-main
+        .cb-content
+
+            header.cb-demo.-lg(data-cuberto-jelly)
+                .cb-demo-content
+                    .cb-demo-container
+                        .cb-demo-header Cuberto#[br] JellyScroll
+
+            section.cb-demo.-v1(data-cuberto-jelly)
+                .cb-demo-content
+                    .cb-demo-container
+                        .cb-demo-header Awesome#[br] JellyScroll effect
+                        .cb-demo-text
+                            p Originally performed by Cuberto.
+                            br
+                            a(href="https://cuberto.com/") Cuberto Site &xrarr;
+                            br
+                            a(href="https://www.patreon.com/cuberto") Cuberto Patreon &xrarr;
+
+            section.cb-demo.-v2(data-cuberto-jelly)
+                .cb-demo-content
+                    .cb-demo-container
+                        .cb-demo-header Basic usage
+                        .cb-demo-text
+                            p Import #[b Jelly] (/src/js/jelly.js) class into your project.
+                            p: br
+                            p Initialize this with:
+                            code const jelly = new JellyEffect();
+                            p: br
+                            p Add attribute #[b data-cuberto-jelly] to elements you wish. Enjoy!
+
+
+            section.cb-demo.-v3(data-cuberto-jelly)
+                .cb-demo-content
+                    .cb-demo-container
+                        .cb-demo-header Advanced#[br] usage
+                        .cb-demo-text
+                            p Options to configure jelly with defaults:
+                            pre.
+                                const jelly = new JellyEffect({
+                                    // delta multiplier, set negative to invert
+                                    intensity: 0.15,
+
+                                    // duration of animation
+                                    speed: 0.6,
+
+                                    // deformation thresholds
+                                    min: -5,
+                                    max: 5,
+                                });
+
+            section.cb-demo.-v4(data-cuberto-jelly)
+                .cb-demo-content
+                    .cb-demo-container
+                        .cb-demo-header Single#[br] instance
+                        .cb-demo-text
+                            p Import #[b {Jelly}] to programmatically use for each elements:
+                            pre.
+                                import {Jelly} from 'jelly';
+                                const jelly = new Jelly(element, options);
+
+            section.cb-demo.-v5(data-cuberto-jelly)
+                .cb-demo-content
+                    .cb-demo-container
+                        .cb-demo-header Smooth-Scroll#[br] integration
+                        .cb-demo-text
+                            p The best results are obtained when using any smooth-scroll library, like a #[a(href="https://github.com/idiotWu/smooth-scrollbar", target="_blank") smooth-scrollbar].
+                            pre.
+                                const scrollbar = SmoothScrollbar.init(container);
+                                const jelly = new JellyEffect({
+                                    // set function to get current scrollTop position
+                                    scrollPos: () => scrollbar.offset.y
+                                });
+
+            section.cb-demo.-v6(data-cuberto-jelly='{"intensity":"0.1"}')
+                .cb-demo-content
+                    .cb-demo-container
+                        .cb-demo-header Data attribute#[br] options
+                        .cb-demo-text
+                            p You can set individual options for each element via data attribute:
+                            pre.
+                                &lt;div data-cuberto-jelly='{&quot;intensity&quot;:&quot;0.3&quot;,&quot;speed&quot;:&quot;0.8&quot;}'&gt;&lt;/div&gt;
+
+            section.cb-demo.-v7(data-cuberto-jelly)
+                .cb-demo-content
+                    .cb-demo-container
+                        .cb-demo-header Performance#[br] notice
+                        .cb-demo-text
+                            p Be careful. This effect is resourceful. Don't use it on heavy blocks or fully-pages. Scrolling may also be jittery on some old devices.
+
+            section.cb-demo.-v8(data-cuberto-jelly)
+                .cb-demo-content
+                    .cb-demo-container
+                        .cb-demo-header Pause#[br] and destroy
+                        .cb-demo-text
+                            p Use #[b .pause(true | false)] to temporary pause effect.
+                            p Use #[b .destroy()] to detach.
